@@ -8,18 +8,18 @@
  */
 int main(void)
 {
-	int count;
-	unsigned long fib1 = 0, fib2 = 1, sum;
+	int i;
+	unsigned long f1 = 0, f2 = 1, sum;
 
-	for (count = 0; count < 50; count++)
+	for (i = 0; i < 50; i++)
 	{
-		sum = fib1 + fib2;
+		sum = f1 + f2;
 		printf("%lu", sum);
 
-		fib1 = fib2;
-		fib2 = sum;
+		f1 = f2;
+		f2 = sum;
 
-		if (count == 49)
+		if (i == 49)
 			printf("\n");
 		else
 			printf(", ");
