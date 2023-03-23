@@ -15,14 +15,14 @@ void print_diagonal(int n)
 		j = 0;
 		while (j < i)
 		{
-			putchar(' ');
+			_putchar(' ');
 			j++;
 		}
 
-		putchar('\\');
-		putchar('\n');
+		_putchar('\\');
+		_putchar('\n');
 		i++;
 	}
 	if (i == 0)
-		putchar('\n');
+		_putchar('\n');
 }
