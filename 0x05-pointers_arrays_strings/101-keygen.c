@@ -12,14 +12,15 @@
 int main(void)
 {
 	int n;
+	int i;
 
 	n = 98;
-	char password[n + 1];
+	char password[99];
 	const char *charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+{}[];:,.<>?";
 
 	srand(time(NULL));
 	
-	for (int i = 0; i < n; i++)
+	for (i = 0; i < n; i++)
 	{
 		password[i] = charset[rand() % strlen(charset)];
 	}
