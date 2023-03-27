@@ -14,10 +14,9 @@ int main(void)
 	int n;
 	int i;
 	char p[99];
-
-	n = 98;
 	const char *charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+{}[];:,.<>?";
 
+	n = 98;
 	srand(time(NULL));
 	
 	for (i = 0; i < n; i++)
