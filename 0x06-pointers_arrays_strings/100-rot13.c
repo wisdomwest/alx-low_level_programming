@@ -10,6 +10,7 @@ char *rot13(char *s)
 {
 	int i, j;
 	char a[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char b[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 
 	for (i = 0; *(s + i); i++)
 	{
@@ -17,7 +18,7 @@ char *rot13(char *s)
 		{
 			if (a[j] == *(s + i))
 			{
-				*(s + i) = *(*s + 1) + 13;
+				*(s + i) = b[j];
 				break;
 			}
 		}
