@@ -8,30 +8,25 @@
 
 char *cap_string(char *s)
 {
-	int count = 0, i;
-	int separators[] = {32, 9, 10, 44, 59, 46, 33, 63, 34, 40, 41, 123, 125};
+	int i = 0, j;
+	char a[] = " \t\n,;.!?\"(){}";
 
-	if (*(s + count) >= 'a' && *(s + count) <= 'z')
+	while (*(s + i))
 	{
-		*(s + count) = *(s + count) - 32;
-		count++;
-	}
-
-	while (*(s + count) != '\0')
-	{
-		for (i = 0; i < 13; i++)
+		if (*(s + i) >= 'a' && *(s + i) <= 'z')
 		{
-			if (*(s + count) == separators[i])
+			if (i == 0)
+				*(s + i) -= 'a' - 'A';
+			else
 			{
-				if ((*(s + (count + 1)) >= 'a') && (*(s + (count + 1)) <= 'z'))
+				for (j = 0; j <= 12; j++)
 				{
-					*(s + (count + 1)) = *(s + (count + 1)) - 32;
-					break;
+					if (a[j] == *(s + i - 1))
+						*(s + i) -= 'a' - 'A';
 				}
 			}
-			count++;
 		}
+		i++;
 	}
-
 	return (s);
 }
