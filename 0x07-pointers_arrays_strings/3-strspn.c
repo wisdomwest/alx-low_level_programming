@@ -18,7 +18,7 @@ unsigned int _strspn(char *s, char *accept)
 		is_char = 0;
 		for (a = accept; *a != '\0'; a++)
 		{
-			if (*S == *a)
+			if (*s == *a)
 			{
 				is_char = 1;
 				break;
