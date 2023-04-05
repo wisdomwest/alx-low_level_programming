@@ -20,6 +20,28 @@ int length(char *s)
 }
 
 /**
+ * helper - get memory in order
+ * @i: start
+ * @j: end
+ * Return: 0 or 1
+ */
+
+int helper(char *i, char *j)
+{
+	if (i >= j)
+	{
+		return (1);
+	}
+	else if (*i != *j)
+	{
+		return (0);
+	}
+	else
+	{
+		return (helper(i + 1, j - 1));
+	}
+}
+/**
  * is_palindrome - checks string if its palindrome
  * @s: string to check
  * Return: 0 or 1
@@ -27,24 +49,5 @@ int length(char *s)
 
 int is_palindrome(char *s)
 {
-	int len = length(s);
-
-	if (len <= 1)
-	{
-		return (1);
-	}
-
-	else
-	{
-		if (s[0] == s[len - 1])
-		{
-			s[len - 1] = '\0';
-			return (is_palindrome(s + 1));
-		}
-
-		else
-		{
-			return (0);
-		}
-	}
+	return (helper(s, s + length(s) - 1));
 }
