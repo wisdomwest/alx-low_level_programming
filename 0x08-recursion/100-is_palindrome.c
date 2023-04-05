@@ -34,14 +34,17 @@ int is_palindrome(char *s)
 		return (1);
 	}
 
-	if (*s == *(s + len - 1))
-	{
-		*(s + len - 1) = '\0';
-		return (is_palindrome(s + 1));
-	}
-
 	else
 	{
-		return (0);
+		if (s[0] == s[len - 1])
+		{
+			s[len - 1] = '\0';
+			return (is_palindrome(s + 1));
+		}
+
+		else
+		{
+			return (0);
+		}
 	}
 }
