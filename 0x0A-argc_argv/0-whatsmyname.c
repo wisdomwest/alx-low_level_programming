@@ -9,6 +9,7 @@
 
 int main(int argc, char *argv[])
 {
+	(void)argc;
 	char *name = argv[0];
 
 	while (*name)
