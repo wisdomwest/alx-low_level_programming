@@ -2,32 +2,6 @@
 #include <stdlib.h>
 
 /**
- * positive - checks if number is more than 0
- * @str: pointer
- * Return: 0
- */
-
-int positive(char *str)
-{
-	if (*str == '\0')
-	{
-		return (0);
-	}
-
-	while (*str != '\0')
-	{
-		if (!isdigit(*str))
-		{
-			return (0);
-		}
-
-		str++;
-	}
-
-	return (1);
-}
-
-/**
  * main - entry point
  * @argv: arguments
  * @argc: counter
@@ -37,6 +11,7 @@ int positive(char *str)
 int main(int argc, char *argv[])
 {
 	int num, result, i;
+	char *ep;
 
 	if (argc == 1)
 	{
@@ -47,14 +22,8 @@ int main(int argc, char *argv[])
 	result = 0;
 	for (i = 1; i < argc; i++)
 	{
-		if (!postive(argv[i]))
-		{
-			printf("Error\n");
-			return (1);
-		}
-
-		num = atoi(argv[i]);
-		if (num <= 0)
+		num = strtol(argv[i], &ep, 10);
+		if(*ep != '\0' || num <= 0)
 		{
 			printf("Error\n");
 			return (1);
