@@ -2,6 +2,32 @@
 #include <stdlib.h>
 
 /**
+ * positive - checks if number is more than 0
+ * @str: pointer
+ * Return: 0
+ */
+
+int positive(char *str)
+{
+	if (*str == '\0')
+	{
+		return (0);
+	}
+
+	while (*str != '\0')
+	{
+		if (!isdigit(*str))
+		{
+			return (0);
+		}
+
+		str++;
+	}
+
+	return (1);
+}
+
+/**
  * main - entry point
  * @argv: arguments
  * @argc: counter
@@ -21,6 +47,12 @@ int main(int argc, char *argv[])
 	result = 0;
 	for (i = 1; i < argc; i++)
 	{
+		if (!postive(argv[i]))
+		{
+			printf("Error\n");
+			return (1);
+		}
+
 		num = atoi(argv[i]);
 		if (num <= 0)
 		{
