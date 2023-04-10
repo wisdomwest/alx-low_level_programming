@@ -23,8 +23,8 @@ int main(int argc, char *argv[])
 	for (i = 1; i < argc; i++)
 	{
 		num = strtol(argv[i], &ep, 10);
-		if(*ep != '\0' || num <= 0)
-		{
+		if (*ep != '\0' || num <= 0)
+	{
 			printf("Error\n");
 			return (1);
 		}
