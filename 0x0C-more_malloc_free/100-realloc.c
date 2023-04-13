@@ -1,3 +1,4 @@
+#include <string.h>
 #include <stdlib.h>
 #include "main.h"
 
@@ -33,14 +34,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 
 	if (new_ptr != NULL)
 	{
-		char *p = (char *) ptr;
-		char *q = (char *) new_ptr;
-		unsigned int i;
-
-		for (i = 0; i < old_size && i < new_size; i++)
-		{
-			q[i] = p[i];
-		}
+		memcpy(new_ptr, ptr, old_size);
 		free(ptr);
 	}
 
