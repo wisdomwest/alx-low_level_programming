@@ -1,3 +1,4 @@
+#include <string.h>
 #include <stdlib.h>
 #include "main.h"
 
@@ -11,9 +12,7 @@
 
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-	char *p;
-	unsigned int i, n = new_size;
-	char *op = ptr;
+	void *new_ptr;
 
 	if (new_size == 0)
 	{
@@ -23,8 +22,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 
 	if (ptr == NULL)
 	{
-		p = malloc(new_size);
-		return (p);
+		return (malloc(new_size));
 	}
 
 	if (new_size ==  old_size)
@@ -32,18 +30,19 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 		return (ptr);
 	}
 
-	p = malloc(new_size);
+	new_ptr = malloc(new_size);
 
-	if (p == NULL)
+	if (new_ptr != NULL)
 	{
-		return (NULL);
+		if (new_size > old_size)
+		{
+			memcpy(new_ptr, ptr, old_size);
+		}
+		else
+		{
+			memcpy(new_ptr, ptr, new_size);
+		}
+		free(ptr);
 	}
-
-	if (new_size > old_size)
-		n = old_size;
-	for (i = 0; i < n; i++)
-		p[i] = op[i];
-
-	free(ptr);
-	return (p);
+	return new_ptr;
 }
