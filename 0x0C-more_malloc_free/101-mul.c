@@ -9,7 +9,7 @@ void print_error(void);
  * Return: 0
  */
 
-void print_number(long long int n)
+void print_number(int n)
 {
 	if (n < 0)
 	{
@@ -32,7 +32,7 @@ void print_number(long long int n)
 
 int str_len(char *str)
 {
-	long long int i = 0;
+	int i = 0;
 
 	while (str[i])
 	{
@@ -50,7 +50,7 @@ int str_len(char *str)
 
 int toint(char *str)
 {
-	long long int i = 0, s = 1, num = 0;
+	int i = 0, s = 1, num = 0;
 
 	if (str[i] == '-')
 	{
@@ -97,7 +97,7 @@ void print_error(void)
  */
 int multiply(char *num1_str, char *num2_str)
 {
-	long long int num1, num2, result;
+	int num1, num2, result;
 
 	num1 = toint(num1_str);
 	num2 = toint(num2_str);
@@ -115,7 +115,7 @@ int multiply(char *num1_str, char *num2_str)
 
 int main(int argc, char **argv)
 {
-	long long int result;
+	int result;
 
 	if (argc != 3)
 	{
