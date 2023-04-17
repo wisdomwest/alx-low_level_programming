@@ -3,48 +3,47 @@
 
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	int namelen = 0;
-	int ownerlen = 0;
-	int i;
-	char *namecpy, *ownercpy;
+	unsigned int i, namelen = 0, ownerlen = 0;
 	dog_t *new_dog;
 
-	while (name[namelen] != '\0')
-	{
-		namelen++;
-	}
-	while (owner[ownerlen] != '\0')
-	{
-		ownerlen++;
-	}
+	if (name == NULL || owner == NULL)
+		return (NULL);
 
 	new_dog = malloc(sizeof(dog_t));
 
 	if (new_dog == NULL)
-	{
 		return (NULL);
-	}
 
-	namecpy = malloc(namelen);
-	ownercpy = malloc(ownerlen);
+	/* copy name to new dog struct*/
+	while (name[namelen] != '\0')
+		namelen++;
 
-	if (namecpy == NULL || ownercpy == NULL)
+	namelen++; /* null terminator */
+
+	new_dog->name = malloc(namelen * sizeof(char));
+	if (new_dog->name == NULL)
 	{
 		free(new_dog);
-		free(namecpy);
-		free(ownercpy);
 		return (NULL);
 	}
 	for (i = 0; i < namelen; i++)
+		new_dog->name[i] = name[i];
+
+	new_dog->age = age;
+
+	while (owner[ownerlen] != '\0')
+		ownerlen++;
+	ownerlen++;
+
+	new_dog->owner = malloc(ownerlen * sizeof(char));
+	if (new_dog->owner == NULL)
 	{
-		namecpy[i] = name[i];
+		free(new_dog->name);
+		free(new_dog);
+		return (NULL);
 	}
 	for (i = 0; i < ownerlen; i++)
-	{
-		ownercpy[i] = owner[i];
-	}
-	new_dog->name = namecpy;
-	new_dog->age = age;
-	new_dog->owner = ownercpy;
+		new_dog->owner[i] = owner[i];
+
 	return (new_dog);
 }
