@@ -46,7 +46,7 @@ void print_opcodes(char *start, int num_bytes)
 	{
 		printf("%02hhx", start[i]);
 
-		if (i < n - 1)
+		if (i < num_bytes - 1)
 			printf(" ");
 	}
 
