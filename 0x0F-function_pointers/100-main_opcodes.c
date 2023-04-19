@@ -17,7 +17,7 @@ int main(int argc, char **argv)
 	if (argc != 2)
 	{
 		printf("Error\n");
-		return (1);
+		exit(1);
 	}
 
 	num_bytes = atoi(argv[1]);
@@ -25,7 +25,7 @@ int main(int argc, char **argv)
 	if (num_bytes < 0)
 	{
 		printf("Error\n");
-		return (2);
+		exit(2);
 	}
 
 	print_opcodes((char *)main, num_bytes);
@@ -41,10 +41,13 @@ int main(int argc, char **argv)
 void print_opcodes(char *start, int num_bytes)
 {
 	int i;
-	
+
 	for (i = 0; i < num_bytes; i++)
 	{
 		printf("%02hhx", start[i]);
+
+		if (i < n - 1)
+			printf(" ");
 	}
 
 	printf("\n");
