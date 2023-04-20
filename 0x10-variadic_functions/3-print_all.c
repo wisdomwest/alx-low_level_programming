@@ -3,26 +3,20 @@
 #include "variadic_functions.h"
 
 /**
- * print_all - print according to type
- * @format: format of data
+ * print_all - Prints all of the arguments when specified
+ * @format: specifies the necessary operations
  * Return: void
  */
-
-
 void print_all(const char * const format, ...)
 {
 	va_list args;
-	int i = -1, is_first_arg = 1;
-	char *s;
+	int i = 0, flag = 0;
+	char *str;
 
 	va_start(args, format);
 
-	while (format && format[++i])
+	while (format && format[i])
 	{
-		if (!is_first_arg)
-			printf(", ");
-		is_first_arg = 0;
-
 		switch (format[i])
 		{
 			case 'c':
@@ -32,13 +26,23 @@ void print_all(const char * const format, ...)
 				printf("%d", va_arg(args, int));
 				break;
 			case 'f':
-				printf("%f", (float)va_arg(args, double));
+				printf("%f", va_arg(args, double));
 				break;
 			case 's':
-				s = va_arg(args, char *);
-				printf("%s", (s ? s : "(nil)"));
+				str = va_arg(args, char *);
+				if (!str)
+					str = "(nil)";
+				printf("%s", str);
+				break;
+			default:
+				flag = 1;
 				break;
 		}
+
+		if (format[i + 1] && !flag)
+			printf(", ");
+		flag = 0;
+		i++;
 	}
 
 	printf("\n");
