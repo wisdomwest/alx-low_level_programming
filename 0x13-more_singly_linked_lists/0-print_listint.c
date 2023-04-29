@@ -1,4 +1,5 @@
 #include "lists.h"
+
 /**
  * print_listint - return number of nodes in linked list
  * @h: pointer to the node
@@ -15,4 +16,5 @@ size_t print_listint(const listint_t *h)
 		h = h->next;
 		count++;
 	}
+	return (count);
 }
