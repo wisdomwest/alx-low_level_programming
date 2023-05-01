@@ -3,7 +3,7 @@
 /**
  * pop_listint -delete head node
  * @head: head on linked list
- * return: 0 or data
+ * Return: 0 or data
  */
 
 int pop_listint(listint_t **head)
@@ -21,5 +21,5 @@ int pop_listint(listint_t **head)
 	*head = tmp->next;
 	free(tmp);
 
-	return(data);
+	return (data);
 }
