@@ -5,6 +5,7 @@
  * @head: beginning of list
  * @idx: index
  * @n: data to be stored
+ * Return: address of new node
  */
 
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
@@ -23,7 +24,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	new->next = NULL;
 
 	for (i = 0; i < idx && address != NULL; i++)
-		address = address-> next;
+		address = address->next;
 
 	new->next = address->next;
 	address->next = new;
