@@ -18,12 +18,19 @@ void print_binary(unsigned long int n)
 	{
 		if ((n & bit_mask) == 0)
 		{
-			_putchar('0');
+			if (flag)
+			{
+				_putchar('0');
+			}
 		}
 		else
 		{
 			_putchar('1');
+			flag = 1;
 		}
 		bit_mask >>= 1;
 	}
+
+	if(!flag)
+		_putchar('0');
 }
