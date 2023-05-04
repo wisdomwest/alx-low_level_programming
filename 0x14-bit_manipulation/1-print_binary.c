@@ -9,6 +9,7 @@
 void print_binary(unsigned long int n)
 {
 	unsigned long int bit_mask = 1UL << (sizeof(unsigned long int) * 8 - 1);
+	int flag;
 	/**
 	 * get highest number decimal in bits
 	 * 1 is to get MSB
