@@ -32,6 +32,6 @@ void print_binary(unsigned long int n)
 		bit_mask >>= 1;
 	}
 
-	if(!flag)
+	if (!flag)
 		_putchar('0');
 }
