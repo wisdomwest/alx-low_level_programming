@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * get_bit - get bit at index using shift
+ * set_bit - get bit at index using shift
  * @n: number to check
  * @index: index to check at binary rep on n
  * Return: 1 or -1
