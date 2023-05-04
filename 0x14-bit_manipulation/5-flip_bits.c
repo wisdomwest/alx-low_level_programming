@@ -12,8 +12,8 @@ int count(int x)
 
 	while (x > 0)
 	{
-		count++;
-		x &= (x - 1);
+		count += (x & 1);
+		x >>= 1;
 	}
 
 	return (count);
@@ -29,6 +29,9 @@ int count(int x)
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
 	unsigned long int xor;
+
+	if ( n == NULL || m == NULL)
+		return (NULL);
 
 	xor = n ^ m;
 
