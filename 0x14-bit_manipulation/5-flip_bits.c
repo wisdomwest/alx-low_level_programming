@@ -32,5 +32,5 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 
 	xor = (n ^ m);
 
-	return (xor);
+	return (count(xor));
 }
