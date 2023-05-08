@@ -59,10 +59,10 @@ int main(int argc, char *argv[])
 		error("ERROR: Can't write to %s", to, 99);
 
 	if (close(fd[0]) < 0)
-		error("Error: Can't close fd %d", from, 100);
+		error("Error: Can't close fd %d", fd[0], 100);
 
 	if (close(fd[1]) < 0)
-		error("Error: Can't close fd %d", to, 100);
+		error("Error: Can't close fd %d", fd[1], 100);
 
 	return (0);
 }
