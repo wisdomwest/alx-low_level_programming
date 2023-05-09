@@ -44,11 +44,16 @@ int main(int argc, char *argv[])
 	if (fd[1] < 0)
 		error("ERROR: Can't write to %s", to, 99);
 	r = read(fd[0], buff, BUFFER_SIZE);
-	if (r < 0)
+	while (r > 0)
+	{
+		w = write(fd[1], buff, r);
+		if (w == -1)
+			error("ERROR: Can't write to %s", to, 99);
+		if (w != r)
+			error("ERROR: Can't write to %s", to, 99);
+	}
+	if (r == -1)
 		error("ERROR: Can't read from file %s\n", from, 98);
-	w = write(fd[1], buff, r);
-	if (w != r)
-		error("ERROR: Can't write to %s", to, 99);
 	if (close(fd[0]) < 0)
 		error("Error: Can't close fd %d", from, 100);
 	if (close(fd[1]) < 0)
