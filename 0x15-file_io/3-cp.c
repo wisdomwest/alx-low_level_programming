@@ -30,7 +30,8 @@ int main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		dprintf(STDERR_FILENO, "Usage: %s file_from file_to\n", argv[0]);
+		dprintf(STDERR_FILENO, "Usage: %s file_from file_to", argv[0]);
+		dprintf(STDERR_FILENO, "\n");
 		exit(97);
 	}
 
