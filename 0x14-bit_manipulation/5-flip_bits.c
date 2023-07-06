@@ -6,7 +6,7 @@
   * Return: count
   */
 
-unsigned int count(int x)
+unsigned int count(unsigned long int x)
 {
 	unsigned int count;
 
