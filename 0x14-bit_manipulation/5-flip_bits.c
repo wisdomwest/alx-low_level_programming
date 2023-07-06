@@ -28,5 +28,7 @@ unsigned int count(unsigned long int x)
 
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	return (count((n ^ m)));
+	unsigned long int xor = n ^ m;
+
+	return (count(xor));
 }
