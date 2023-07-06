@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
-  * binary_to_int - convert binary to base 10
+  * binary_to_uint - convert binary to base 10
   * @b: pointer to binary
   * Return: 0 or base 10
   */
