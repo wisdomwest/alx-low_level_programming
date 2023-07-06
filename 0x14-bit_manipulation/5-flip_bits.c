@@ -8,7 +8,7 @@
 
 int count(int x)
 {
-	int count;
+	unsigned int count;
 
 	while (x > 0)
 	{
