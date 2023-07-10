@@ -27,6 +27,7 @@ int main(int argc, char *argv[])
 	int fd[2];
 	char buff[BUFFER_SIZE];
 	ssize_t r, w;
+	mode_t mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
 
 	if (argc != 3)
 	{
@@ -40,7 +41,7 @@ int main(int argc, char *argv[])
 	fd[0] = open(from, O_RDONLY);
 	if (fd[0] < 0)
 		error("ERROR: Can't read from file %s\n", from, 98);
-	fd[1] = open(to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	fd[1] = open(to, O_CREAT | O_WRONLY | O_TRUNC, mode);
 	if (fd[1] < 0)
 		error("ERROR: Can't write to %s", to, 99);
 	r = read(fd[0], buff, BUFFER_SIZE);
