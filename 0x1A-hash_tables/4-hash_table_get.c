@@ -3,7 +3,7 @@
 /**
  * hash_table_get - Retrieve the value of key
  * @ht: A pointer to the hash table.
- * @key: The key 
+ * @key: The key
  * Return: NULL or key
  */
 char *hash_table_get(const hash_table_t *ht, const char *key)
@@ -19,7 +19,7 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 		return (NULL);
 
 	x = ht->array[index];
-	while (x && strcmp(node->key, key) != 0)
+	while (x && strcmp(x->key, key) != 0)
 		x = x->next;
 
 	return ((x == NULL) ? NULL : x->value);
