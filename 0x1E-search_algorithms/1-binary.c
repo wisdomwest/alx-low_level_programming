@@ -10,13 +10,12 @@
 int binary_search(int *array, size_t size, int value)
 {
 	size_t i;
-	size_t L = 0;
-	size_t R = size - 1;
+	size_t L, R;
 
 	if (array == NULL)
 		return (-1);
 
-	while (L <= R)
+	for (L = 0, R = size - 1; R >= L;)
 	{
 		printf("Searching in array: ");
 		for (i = L; i < R; i++)
