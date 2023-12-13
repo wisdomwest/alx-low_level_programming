@@ -1,16 +1,6 @@
 #include "search_algos.h"
 
 /**
-  * min - find min int
-  * @a: first integer
-  * @b: second integer
-  * Return: min int
-  */
-int min(int a, int b)
-{
-	return (a < b) ? a : b;
-}
-/**
   * jump_search - jump search algo
   * @array: pointer to first element in array
   * @size: number of elements in array
@@ -19,12 +9,19 @@ int min(int a, int b)
   */
 int jump_search(int *array, size_t size, int value)
 {
-	int step = sqrt(size);
-	int prev = 0;
+	size_t i, idx, step;
 
-	while (array[min(step, size) - 1] < size)
+	if (array == NULL)
+		return (-1);
+
+	step = sqrt(size);
+	idx = 0;
+	for(i = 0; idx < size && array[idx] < value;)
 	{
-		printf("Value checked array[%d] = [%d]\n", prev, arr[prev]);
-
+		printf("Value checked array[%ld] = [%d]\n", idx, array[idx]);
+		i = idx;
+		idx += step;
 	}
+
+	printf("Value found between indexes [%ld] and [%ld]\n", i, idx);
 }
